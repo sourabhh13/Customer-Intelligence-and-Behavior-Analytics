@@ -1,4 +1,4 @@
-# Customer Behavior Insights Report  
+# Customer Intelligence and Behavior Analytics 
 **Retail Customer Intelligence using Python, SQL & Power BI**
 
 ---
