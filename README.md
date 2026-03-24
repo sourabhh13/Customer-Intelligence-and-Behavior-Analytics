@@ -1,62 +1,134 @@
-# Customer Intelligence and Behavior Analytics 
-**Retail Customer Intelligence using Python, SQL & Power BI**
+# Customer Shopping Behavior Analysis
+
+An end-to-end retail analytics project that analyzes customer shopping behavior using **Python, PostgreSQL, SQL, and Power BI**. The goal of this project is to uncover patterns in customer spending, subscription behavior, product preferences, discounts, and loyalty so businesses can make more informed marketing and product decisions.
 
 ---
 
-## Project Overview  
+## Project Overview
 
-This project presents an end-to-end analysis of customer shopping behavior using transactional retail data. The objective is to identify patterns in spending, customer segments, product performance, and the impact of discounts and subscriptions in order to support data-driven business decisions.
+A retail company wants to better understand customer purchasing behavior across demographics, product categories, and buying preferences. This project answers the core business question:
 
-The project follows a professional analytics workflow that includes data preparation in Python, business analysis using SQL, and insight visualization through Power BI.
+ **How can a company leverage customer shopping data to identify trends, improve customer engagement, and optimize marketing and product strategies?**
 
----
-
-## Business Problem  
-
-A retail company wants to better understand how customers interact with products, pricing, promotions, and subscription models. Management is interested in identifying the key drivers of purchasing behavior and repeat purchases so they can improve customer engagement, optimize marketing strategies, and increase long-term revenue.
-
----
-
-## Dataset  
-
-The dataset contains 3,900 customer purchase records across multiple product categories. It includes customer demographics, purchase details, discount and subscription information, review ratings, and shipping preferences.
+The project was built as a complete analytics workflow:
+- **Data Preparation & Cleaning in Python**
+- **Business Analysis in PostgreSQL using SQL**
+- **Interactive Visualization in Power BI**
+- **Business Recommendations based on insights**
 
 ---
 
-## Tools and Technologies  
+## Dataset Summary
 
-Python (Pandas, NumPy) was used for data cleaning, transformation, and exploratory analysis.  
-PostgreSQL was used to run business-focused SQL queries on the cleaned data.  
-Power BI was used to build an interactive dashboard to visualize key metrics and trends.
+- **Rows:** 3,900
+- **Columns:** 18
+- **Domain:** Retail / E-commerce customer transactions
+- **Missing Values:** 37 values in the `Review Rating` column
 
----
-
-## Project Workflow  
-
-1. The raw dataset was loaded and cleaned using Python.  
-2. Missing values were handled and new analytical features such as age groups and purchase frequency were created.  
-3. The cleaned dataset was loaded into a SQL database.  
-4. SQL queries were written to analyze revenue, customer segments, product performance, discounts, and subscriptions.  
-5. Power BI was connected to the database to create an interactive dashboard.  
-6. A business report was prepared summarizing insights and recommendations.
+### Key Features
+- **Customer demographics:** Age, Gender, Location, Subscription Status
+- **Purchase details:** Item Purchased, Category, Purchase Amount, Season, Size, Color
+- **Behavioral attributes:** Discount Applied, Promo Code Used, Previous Purchases, Frequency of Purchases, Review Rating, Shipping Type, Payment Method
 
 ---
 
-## Key Analysis Areas  
+## Business Objective
 
-The project focuses on:
-- Customer segmentation into new, returning, and loyal customers  
-- Revenue contribution by age group and gender  
-- Subscriber versus non-subscriber spending behavior  
-- Product and category performance  
-- The impact of discounts and shipping types on purchase amounts  
-
----
-
-## Business Value  
-
-The insights from this analysis help identify high-value customer segments, evaluate the effectiveness of discounts and subscriptions, and highlight which products and customer groups drive the most revenue. These insights can be used to improve marketing strategy, customer retention, and overall business performance.
+The objective of this project is to analyze customer shopping data to:
+- Understand spending and purchasing patterns
+- Identify customer segments and loyalty behavior
+- Measure the impact of subscriptions, discounts, and shipping preferences
+- Highlight top-performing products and categories
+- Support data-driven decisions for marketing, retention, and product strategy
 
 ---
 
+## Tools & Technologies
 
+- **Python** – Data cleaning, preprocessing, feature engineering
+- **Pandas** – Data manipulation and exploration
+- **PostgreSQL** – Data storage and SQL analysis
+- **SQL** – Business query analysis
+- **Power BI** – Dashboarding and interactive reporting
+
+---
+
+## Project Workflow
+
+### 1. Data Cleaning and Preparation in Python
+The raw dataset was cleaned and transformed before analysis.
+
+#### Steps performed:
+- Loaded the dataset with **pandas**
+- Performed initial exploration using `df.info()` and `df.describe()`
+- Handled missing values in `Review Rating` using **category-level median imputation**
+- Standardized column names into **snake_case**
+- Created an **`age_group`** feature by grouping customers into age segments
+- Created a **purchase frequency related field** for downstream analysis
+- Checked data consistency between `discount_applied` and `promo_code_used`
+- Dropped the redundant `promo_code_used` column
+- Loaded the cleaned dataset into **PostgreSQL** for SQL-based business analysis
+
+---
+
+### 2. SQL Analysis in PostgreSQL
+After cleaning the data, SQL queries were written to answer key business questions.
+
+#### Business questions analyzed:
+1. Revenue generated by **male vs. female** customers
+2. Customers who used discounts but still spent **above average**
+3. **Top 5 products by review rating**
+4. Comparison of **Standard vs. Express shipping** purchase amounts
+5. Spend and revenue comparison between **subscribers and non-subscribers**
+6. Products with the highest percentage of **discount-driven purchases**
+7. Customer segmentation into **New, Returning, and Loyal** groups
+8. **Top 3 products per category**
+9. Whether **repeat buyers** are more likely to subscribe
+10. Revenue contribution by **age group**
+
+---
+
+## Dashboard in Power BI
+An interactive **Power BI dashboard** was created to present the findings visually.
+
+### Dashboard Highlights
+- KPI cards for:
+  - **Number of Customers:** 3.9K
+  - **Average Purchase Amount:** $59.76
+  - **Average Review Rating:** 3.75
+- Donut chart showing **subscription split**
+- Bar charts for:
+  - **Revenue by Category**
+  - **Sales by Category**
+  - **Revenue by Age Group**
+  - **Sales by Age Group**
+- Interactive slicers for:
+  - Subscription Status
+  - Gender
+  - Category
+  - Shipping Type
+
+---
+
+## Key Insights
+
+- **Non-subscribers generated higher total revenue** mainly because they made up a much larger share of customers.
+- **Average spend between subscribers and non-subscribers was very similar**, suggesting the bigger opportunity is increasing subscription adoption.
+- **Express shipping users** showed a slightly higher average purchase amount than Standard shipping users.
+- Products like **Hat, Sneakers, Coat, Sweater, and Pants** were highly discount-dependent.
+- The **Young Adult** segment contributed the highest revenue among age groups.
+- Most customers fell into the **Loyal** segment, indicating strong repeat purchasing behavior.
+
+---
+
+## Business Recommendations
+
+Based on the analysis, the following recommendations were made:
+
+- **Boost subscriptions** by promoting exclusive subscriber benefits
+- **Reward repeat buyers** through loyalty programs and retention campaigns
+- **Review discount strategy** to balance sales growth and profitability
+- **Promote top-rated and best-selling products** more aggressively
+- **Target high-revenue customer segments** with personalized marketing campaigns
+
+---
